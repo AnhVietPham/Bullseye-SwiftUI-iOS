@@ -10,29 +10,61 @@ import SwiftUI
 
 struct ContentView: View {
     @State var isAlertVisible: Bool = false
+    @State var sliderValue: Double = 50.0
+    
     var body: some View {
-        VStack{
-            Text("Welcome to my first App")
-                .fontWeight(.semibold)
-                .foregroundColor(Color.red)
-            Button(action:{
-                self.isAlertVisible = true
-            }){
-                Text("Hit me!")
+            VStack{
+                    Spacer()
+                    // Target row
+                    HStack {
+                        Text("Put BullEyes in Center can to: ")
+                        Text("100")
+                    }
+                    Spacer()
+                    // Slider row
+                    HStack{
+                        Text("1")
+                        Slider(value: self.$sliderValue, in: 1...100)
+                        Text("100")
+                    }
+                    Spacer()
+                    // Button row
+                    Button(action:{
+                        self.isAlertVisible = true
+                    }){
+                        Text("Hit me!")
+                    }
+                    .alert(isPresented: $isAlertVisible) { () ->
+                        Alert in
+                        return Alert(title: Text("Hello Everyone"),
+                                     message: Text("This is my first POP-UP"),
+                                     dismissButton: .default(Text("Awsome!!")))
+                        
+                    }
+                    Spacer()
+                    // Score row
+                HStack{
+                    Button(action: {}){
+                        Text("Start over")
+                    }
+                    Spacer()
+                    Text("Score: ")
+                    Text("999999")
+                    Spacer()
+                    Text("Round: ")
+                    Text("999")
+                    Spacer()
+                    Button(action: {}){
+                        Text("Info")
+                    }
+                }.padding(.bottom, 20)
             }
-            .alert(isPresented: $isAlertVisible) { () ->
-                Alert in
-                return Alert(title: Text("Hello Everyone"),
-                             message: Text("This is my first POP-UP"),
-                             dismissButton: .default(Text("Awsome!!")))
-                
-            }
-        }
+    
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().previewLayout(.fixed(width: 896, height: 419))
     }
 }
