@@ -11,6 +11,7 @@ import SwiftUI
 struct ContentView: View {
     @State var isAlertVisible: Bool = false
     @State var sliderValue: Double = 50.0
+    @State var targetValue: Int = Int.random(in: 1...100)
     
     var body: some View {
             VStack{
@@ -18,7 +19,7 @@ struct ContentView: View {
                     // Target row
                     HStack {
                         Text("Put BullEyes in Center can to: ")
-                        Text("100")
+                        Text("\(self.targetValue)")
                     }
                     Spacer()
                     // Slider row
@@ -38,7 +39,9 @@ struct ContentView: View {
                     Alert in
                         let roundValue = Int(self.sliderValue)
                         return Alert(title: Text("Hello Everyone"),
-                                     message: Text("The Slider's value is \(roundValue)."),
+                                     message: Text("The Slider's value is \(roundValue).\n" +
+                                        "Your score is \(self.pointsForCurrentRound())"
+                            ),
                                      dismissButton: .default(Text("Awsome!!")))
                         
                     }
@@ -61,6 +64,9 @@ struct ContentView: View {
                 }.padding(.bottom, 20)
             }
     
+    }
+    func pointsForCurrentRound() -> Int {
+        return 9090
     }
 }
 
