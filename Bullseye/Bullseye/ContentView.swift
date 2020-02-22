@@ -35,9 +35,10 @@ struct ContentView: View {
                         Text("Hit me!")
                     }
                     .alert(isPresented: $isAlertVisible) { () ->
-                        Alert in
+                    Alert in
+                        let roundValue = Int(self.sliderValue)
                         return Alert(title: Text("Hello Everyone"),
-                                     message: Text("This is my first POP-UP"),
+                                     message: Text("The Slider's value is \(roundValue)."),
                                      dismissButton: .default(Text("Awsome!!")))
                         
                     }
