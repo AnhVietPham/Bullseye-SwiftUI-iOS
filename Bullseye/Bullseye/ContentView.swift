@@ -21,6 +21,8 @@ struct ContentView: View {
                     // Target row
                     HStack {
                         Text("Put BullEyes in Center can to: ")
+                            .foregroundColor(Color.white)
+                            .shadow(color: Color.black, radius: 5, x: 2, y: 2)
                         Text("\(self.targetValue)")
                     }
                     Spacer()
@@ -71,6 +73,7 @@ struct ContentView: View {
                     }
                 }.padding(.bottom, 20)
             }
+            .background(Image("Background"), alignment: .center)
     
     }
     
