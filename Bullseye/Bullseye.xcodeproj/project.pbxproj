@@ -15,6 +15,7 @@
 		34650A9023C54CF900CA7350 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34650A8E23C54CF900CA7350 /* LaunchScreen.storyboard */; };
 		34650A9B23C54CFA00CA7350 /* BullseyeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34650A9A23C54CFA00CA7350 /* BullseyeTests.swift */; };
 		34650AA623C54CFA00CA7350 /* BullseyeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34650AA523C54CFA00CA7350 /* BullseyeUITests.swift */; };
+		34CB9C472414DC8000171A89 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CB9C462414DC8000171A89 /* AboutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		34650AA123C54CFA00CA7350 /* BullseyeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BullseyeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		34650AA523C54CFA00CA7350 /* BullseyeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullseyeUITests.swift; sourceTree = "<group>"; };
 		34650AA723C54CFA00CA7350 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34CB9C462414DC8000171A89 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				34650A8323C54CF600CA7350 /* AppDelegate.swift */,
 				34650A8523C54CF600CA7350 /* SceneDelegate.swift */,
 				34650A8723C54CF600CA7350 /* ContentView.swift */,
+				34CB9C462414DC8000171A89 /* AboutView.swift */,
 				34650A8923C54CF900CA7350 /* Assets.xcassets */,
 				34650A8E23C54CF900CA7350 /* LaunchScreen.storyboard */,
 				34650A9123C54CF900CA7350 /* Info.plist */,
@@ -267,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34CB9C472414DC8000171A89 /* AboutView.swift in Sources */,
 				34650A8423C54CF600CA7350 /* AppDelegate.swift in Sources */,
 				34650A8623C54CF600CA7350 /* SceneDelegate.swift in Sources */,
 				34650A8823C54CF600CA7350 /* ContentView.swift in Sources */,

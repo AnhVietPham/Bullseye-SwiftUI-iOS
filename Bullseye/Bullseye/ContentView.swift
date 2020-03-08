@@ -15,29 +15,73 @@ struct ContentView: View {
     @State var score = 0
     @State var round = 1
     
+    struct LabelStyle: ViewModifier {
+        func body(content: Content) -> some View {
+            return content
+                .foregroundColor(Color.white)
+                .modifier(Shadow())
+                .font(Font.custom("Arial Rounded MT Bold", size: 18))
+        }
+    }
+    
+    
+    
+    struct ValueStyle: ViewModifier {
+        func body(content: Content) -> some View {
+            return content
+                .foregroundColor(Color.yellow)
+                .modifier(Shadow())
+                .font(Font.custom("Arial Rounded MT Bold", size: 18))
+        }
+    }
+    
+    struct Shadow: ViewModifier {
+        func body(content: Content) -> some View {
+            return content
+                .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+        }
+    }
+    
+    
+    struct ButtonLargeTextStyle: ViewModifier {
+        func body(content: Content) -> some View {
+            return content
+                .foregroundColor(Color.black)
+                .modifier(Shadow())
+                .font(Font.custom("Arial Rounded MT Bold", size: 14))
+        }
+    }
+    
+    struct ButtonSmallTextStyle: ViewModifier {
+        func body(content: Content) -> some View {
+            return content
+                .foregroundColor(Color.black)
+                .modifier(Shadow())
+                .font(Font.custom("Arial Rounded MT Bold", size: 12))
+        }
+    }
+    
     var body: some View {
             VStack{
                     Spacer()
                     // Target row
                     HStack {
-                        Text("Put BullEyes in Center can to: ")
-                            .foregroundColor(Color.white)
-                            .shadow(color: Color.black, radius: 5, x: 2, y: 2)
+                        Text("Put BullEyes in Center can to: ").modifier(LabelStyle())
                         Text("\(self.targetValue)")
                     }
                     Spacer()
                     // Slider row
                     HStack{
-                        Text("1")
-                        Slider(value: self.$sliderValue, in: 1...100)
-                        Text("100")
+                        Text("1").modifier(LabelStyle())
+                        Slider(value: self.$sliderValue, in: 1...100).accentColor(Color.green)
+                        Text("100").modifier(LabelStyle())
                     }
                     Spacer()
                     // Button row
                     Button(action:{
                         self.isAlertVisible = true
                     }){
-                        Text("Hit me!")
+                        Text("Hit me!").modifier(ButtonLargeTextStyle())
                     }
                     .alert(isPresented: $isAlertVisible) { () ->
                     Alert in
@@ -52,6 +96,7 @@ struct ContentView: View {
                             })
                         
                     }
+                    .background(Image("Button")).modifier(Shadow())
                     Spacer()
                     // Score row
                 HStack{
@@ -59,8 +104,13 @@ struct ContentView: View {
                     {
                         self.startNewGame()
                     }){
-                        Text("Start over")
+                        HStack{
+                            Image("StartOverIcon")
+                            Text("Start over").modifier(ButtonSmallTextStyle())
+                        }
+                        
                     }
+                    .background(Image("Button")).modifier(Shadow())
                     Spacer()
                     Text("Score: ")
                     Text("\(score)")
@@ -68,12 +118,18 @@ struct ContentView: View {
                     Text("Round: ")
                     Text("\(round)")
                     Spacer()
-                    Button(action: {}){
-                        Text("Info")
+                    NavigationLink(destination: AboutView()){
+                        HStack{
+                            Image("InfoIcon")
+                            Text("Info").modifier(ButtonSmallTextStyle())
+                        }
+                        
                     }
+                    .background(Image("Button")).modifier(Shadow())
                 }.padding(.bottom, 20)
             }
             .background(Image("Background"), alignment: .center)
+            .navigationBarTitle("Bullseye!!")
     
     }
     
